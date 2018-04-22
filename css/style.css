@@ -82,7 +82,7 @@ a:hover {
 .bg-header {
 	position: absolute;
 	background-color: #EFF2F4;
-	background-image: url("../images/header.jpg");
+	background-image: url('../images/header.jpg');
 	background-position: center;
 	background-size: cover;
 	width: 100%;
