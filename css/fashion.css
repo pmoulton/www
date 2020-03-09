@@ -1,1 +1,6 @@
-@import url('restaurants.css')
+a:hover {
+	text-decoration-color: #bd93f9;
+}
+.content {
+	top: 20vh;
+}
