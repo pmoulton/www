@@ -1,0 +1,6 @@
+[submodule "photo-web"]
+	path = photo-web
+	url = git@github.com:pmoulton/photo-web.git
+[submodule "photo"]
+	path = photo
+	url = git@github.com:pmoulton/photo-web.git
