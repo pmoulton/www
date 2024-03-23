@@ -1,94 +1,101 @@
 * {
 	box-sizing: border-box;
-	background-color: #2E3440;
+}
+
+:root {
+  --main-bg-color: #fdf6e3;
+	--alt-bg-color: #d2dce5;
+	--accent-color-one: #f4c16e;
+	--accent-color-two: #886c3f;
+	--accent-color-three: #859900;
+	--accent-color-four: #BF616A;
+	--accent-color-five: #88C0D0;
+	--font-weight-default: 400;
+	--font-weight-slightly-thicker: 600;
+	--font-weight-slightly-thinner: 300;
 }
 
 body {
-	color: #E5E9F0;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 	margin: 0;
-}
-
-h1 {
-	font-weight: 600;
-	font-size: 32px;
-	margin: 0;
-	text-align: left;
+	padding: 0;
+	color: #33302f;
+	background-color: var(--main-bg-color);
+	font-weight: var(--font-weight-default);
 }
 
 h3 {
-	font-weight: 600;
+	color: var(--accent-color-two);
 	font-size: 23px;
 	margin: 0;
 	text-align: left;
 }
 
 p {
-	font-weight: 300;
 	font-size: 23px;
 	line-height: 50px;
 	margin: 10px 0px 20px 0px;
-	color: white;
+	
 }
 
 a, a:visited {
-	color: white;
-	text-decoration-color: #4C566A
+	color: var(--accent-color-one);
+	text-decoration: none;
 }
 
 a:hover {
-	text-decoration-color: #88C0D0;
+	text-decoration: underline;
 }
-
-.link-1:hover {
-	text-decoration-color: #B48EAD;
-}
-
-.link-2:hover {
-	text-decoration-color: #8FBCBB;
-}
-
-.link-3:hover {
-	text-decoration-color: #D08770;
-}
-
-.link-4:hover {
-	text-decoration-color: #A3BE8C;
-}
-
-.link-5:hover {
-	text-decoration-color: #EBCB8B;
-}
-
-.link-6:hover {
-	text-decoration-color: #BF616A;
-}
-
-.link-7:hover {
-	text-decoration-color: #5E81AC;
-}
-
-.link-8:hover {
-	text-decoration-color: #81A1C1;
-}
-
-.link-9:hover {
-	text-decoration-color: #88C0D0;
-}
-
 .content {
 	position: relative;
-	margin: 10vh auto 10vh auto;
 	height: auto;
+	min-height: 100vh;
+}
+
+.width-limited {
 	width: 80vw;
-	max-width: 800px;
+	max-width: 1000px;
+	margin: auto;
 }
 
-.monospace {
-	font-family: Monaco, "Lucida Console", monospace;
-	font-size: 18px;
+.nav {
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
-.dense {
-	line-height: 30px;
+.links {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.footer-wrapper {
+	background-color: var(--alt-bg-color);
+	margin-top: 50px;
+	margin-bottom: 0;
+	padding: 0;
+	border: 0;
+}
+.bg-primary {
+	background-color: var(--main-bg-color);
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/* Mobile settings. */
+@media only screen and (max-width: 600px) {
+	.links {
+		flex-direction: column;
+		align-items: center;
+	}
+	body {
+		font-weight: var(--font-weight-slightly-thinner);
+	}
+	p {
+		font-size: 20px;
+	}
+	h3 {
+		font-size: 20px;
+	}
 }

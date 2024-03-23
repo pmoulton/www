@@ -1,3 +1,3 @@
 a:hover {
-	text-decoration-color: #BF616A;
+	text-decoration-color: var(--accent-color-four);
 }
