@@ -3,7 +3,7 @@
 }
 
 :root {
-  --main-bg-color: #fdf6e3;
+	--main-bg-color: #fdf6e3;
 	--alt-bg-color: #d2dce5;
 	--accent-color-one: #f4c16e;
 	--accent-color-two: #886c3f;
@@ -35,10 +35,11 @@ p {
 	font-size: 23px;
 	line-height: 50px;
 	margin: 10px 0px 20px 0px;
-	
+
 }
 
-a, a:visited {
+a,
+a:visited {
 	color: var(--accent-color-one);
 	text-decoration: none;
 }
@@ -46,6 +47,7 @@ a, a:visited {
 a:hover {
 	text-decoration: underline;
 }
+
 .content {
 	position: relative;
 	height: auto;
@@ -76,6 +78,7 @@ a:hover {
 	padding: 0;
 	border: 0;
 }
+
 .bg-primary {
 	background-color: var(--main-bg-color);
 	margin: 0;
@@ -89,12 +92,15 @@ a:hover {
 		flex-direction: column;
 		align-items: center;
 	}
+
 	body {
 		font-weight: var(--font-weight-slightly-thinner);
 	}
+
 	p {
 		font-size: 20px;
 	}
+
 	h3 {
 		font-size: 20px;
 	}
