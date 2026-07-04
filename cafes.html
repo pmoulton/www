@@ -1,31 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="a">
 
 <head>
-	<title>cafes</title>
-	<meta charset='UTF-8'>
-	<meta name='viewport' content='width=device-width'>
+  <title>cafes</title>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='theme-color' content='#0d0c0b'>
 
-	<!-- Mobile Chrome -->
-	<meta name='theme-color' content='#2E3440'>
-	<!-- Mobile Safari -->
-	<meta name='apple-mobile-web-app-status-bar-style' content='#2E3440'>
+  <link href='css/fashion.css' rel='stylesheet' type='text/css'>
+  <link rel='icon' href='favicon3.png' />
 
-	<!-- CSS / Favicon -->
-	<link href='css/style4.css' rel='stylesheet' type='text/css'>
-	<link href='css/cafes.css' rel='stylesheet' type='text/css'>
-	<link rel='icon' href='favicon3.png' />
+  <!-- pick a theme at random before paint -->
+  <script>(function(){var k=['a','b','c','d','e','f'];document.documentElement.setAttribute('data-theme',k[Math.floor(Math.random()*k.length)])})();</script>
 
-	<!-- Google Analytics -->
-	<script src='js/analytics.js'></script>
+  <!-- Google Analytics -->
+  <script src='js/analytics.js'></script>
 </head>
 
 <body>
-	<div class='content width-limited'>
-		<h1>cafes<br><br></h1>
-		<p>
+  <div class="picker" role="group" aria-label="theme">
+      <button data-set="a" aria-label="theme 1"></button>
+      <button data-set="b" aria-label="theme 2"></button>
+      <button data-set="c" aria-label="theme 3"></button>
+      <button data-set="d" aria-label="theme 4"></button>
+      <button data-set="e" aria-label="theme 5"></button>
+      <button data-set="f" aria-label="theme 6"></button>
+  </div>
 
-			<a href='https://bluebottlecoffee.com/'>blue bottle coffee</a>
+  <header class="nav wrap">
+    <div class="links">
+      <span class="me">pmoulton@</span>
+      <a href='https://notblonded.com/'>film</a>
+      <a href='https://paulmoultn.com/cafes' class='here'>coffee</a>
+      <a href='https://paulmoultn.com/restaurants'>food</a>
+      <a href='https://github.com/pmoulton/efficiency'>computing</a>
+    </div>
+  </header>
+
+  <main class="content wrap tight">
+    <h1>cafes</h1>
+    <p class="list">
+<a href='https://bluebottlecoffee.com/'>blue bottle coffee</a>
 			(京都市東山店、青山店、京都市三条店、seoul) <br>
 
 
@@ -86,8 +101,23 @@
 			(東京) <br>
 
 
-		</p>
-	</div>
+    </p>
+  </main>
+
+  <div class="footer"><i></i><i></i><i></i><i></i><i></i></div>
+
+  <script>
+    (function(){
+      var root=document.documentElement;
+      var btns=[].slice.call(document.querySelectorAll('.picker button'));
+      function set(t){
+        root.setAttribute('data-theme',t);
+        btns.forEach(function(b){b.setAttribute('aria-current', b.dataset.set===t)});
+      }
+      btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+      set(root.getAttribute('data-theme'));   /* sync picker to the random pick */
+    })();
+  </script>
 </body>
 
 </html>

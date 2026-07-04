@@ -1,28 +1,46 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>restaurants</title>
-		<meta charset='UTF-8'>
-		<meta name='viewport' content='width=device-width'>
+<html lang="en" data-theme="a">
 
-		<!-- Mobile Chrome -->
-		<meta name='theme-color' content='#2E3440'>
-		<!-- Mobile Safari -->
-		<meta name='apple-mobile-web-app-status-bar-style' content='#2E3440'>
+<head>
+  <title>restaurants</title>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='theme-color' content='#0d0c0b'>
 
-		<!-- CSS / Favicon -->
-		<link href='css/style4.css' rel='stylesheet' type='text/css'>
-		<link href='css/restaurants.css' rel='stylesheet' type='text/css'>
-		<link rel='icon' href='favicon3.png'/>
+  <link href='css/fashion.css' rel='stylesheet' type='text/css'>
+  <link rel='icon' href='favicon3.png' />
 
-		<!-- Google Analytics -->
-		<script src='js/analytics.js'></script>
-	</head>
-	<body>
-		<div class='content width-limited'>
-			<h1>restaurants<br><br></h1>
-			<p>
-				<a href='https://tabelog.com/kyoto/A2601/A260301/26031313/'>さえ㐂</a> 
+  <!-- pick a theme at random before paint -->
+  <script>(function(){var k=['a','b','c','d','e','f'];document.documentElement.setAttribute('data-theme',k[Math.floor(Math.random()*k.length)])})();</script>
+
+  <!-- Google Analytics -->
+  <script src='js/analytics.js'></script>
+</head>
+
+<body>
+  <div class="picker" role="group" aria-label="theme">
+      <button data-set="a" aria-label="theme 1"></button>
+      <button data-set="b" aria-label="theme 2"></button>
+      <button data-set="c" aria-label="theme 3"></button>
+      <button data-set="d" aria-label="theme 4"></button>
+      <button data-set="e" aria-label="theme 5"></button>
+      <button data-set="f" aria-label="theme 6"></button>
+  </div>
+
+  <header class="nav wrap">
+    <div class="links">
+      <span class="me">pmoulton@</span>
+      <a href='https://notblonded.com/'>film</a>
+      <a href='https://paulmoultn.com/cafes'>coffee</a>
+      <a href='https://paulmoultn.com/restaurants' class='here'>food</a>
+      <a href='https://github.com/pmoulton/efficiency'>computing</a>
+    </div>
+  </header>
+
+  <main class="content wrap tight">
+    <h1>restaurants</h1>
+    <p class="list">
+<a href='https://tabelog.com/kyoto/A2601/A260301/26031313/'>さえ㐂</a> 
 				 (京都）<br>
 				<a href='https://tabelog.com/fukuoka/A4004/A400402/40001637/'>照寿司</a> 
 				 (北九州）<br>
@@ -161,7 +179,23 @@
 				 (berkeley)<br>
 				<a href='http://zacharys.com/'>zachary's chicago pizza</a>
 				 (berkeley)<br>
-			</p>
-		</div>
-	</body>
+    </p>
+  </main>
+
+  <div class="footer"><i></i><i></i><i></i><i></i><i></i></div>
+
+  <script>
+    (function(){
+      var root=document.documentElement;
+      var btns=[].slice.call(document.querySelectorAll('.picker button'));
+      function set(t){
+        root.setAttribute('data-theme',t);
+        btns.forEach(function(b){b.setAttribute('aria-current', b.dataset.set===t)});
+      }
+      btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+      set(root.getAttribute('data-theme'));   /* sync picker to the random pick */
+    })();
+  </script>
+</body>
+
 </html>
