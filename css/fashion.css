@@ -21,13 +21,22 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:0;z-i
 .links .me{color:var(--bright)}
 .links a{color:var(--ink);text-decoration:none;transition:color .2s}
 .links a:hover{color:var(--accent)}
+.links a.here{color:var(--accent)}
 
 .content{flex:1;padding-top:16vh;position:relative;z-index:1}
+.content.tight{padding-top:8vh}
+h1{margin:0 0 26px;font-size:13px;letter-spacing:.32em;text-transform:uppercase;
+   color:var(--accent);font-weight:400}
 h3{margin:0 0 10px;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent)}
 .body{font-size:19px;line-height:1.9;color:var(--bright);max-width:44ch;margin:0 0 50px}
 .hist{font-size:13px;letter-spacing:.08em;line-height:2.5;text-transform:uppercase}
 .hist b{color:var(--bright);font-weight:400}
 .hist span{color:var(--dim)}
+
+/* link-list pages (coffee / food) */
+.list{font-size:14px;line-height:2.15;color:var(--ink);max-width:66ch;margin:0}
+.list a{color:var(--bright);text-decoration:none;transition:color .2s}
+.list a:hover{color:var(--accent)}
 
 .footer{margin-top:60px;height:88px;display:flex;flex-direction:column;position:relative;z-index:1}
 .footer i{flex:1}
