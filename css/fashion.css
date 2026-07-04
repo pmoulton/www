@@ -1,6 +1,99 @@
-a:hover {
-	text-decoration-color: #bd93f9;
+/* fashion.css — theme system */
+*{box-sizing:border-box}
+html,body{margin:0}
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"SFMono-Regular",Menlo,Monaco,"Courier New",monospace;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;flex-direction:column;
+  background-image:radial-gradient(110% 70% at 85% 115%,var(--wash),transparent 55%);
 }
-.content {
-	top: 20vh;
+
+/* single texture overlay; per-theme rules below switch it on */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:0;z-index:100}
+
+.wrap{width:84vw;max-width:1000px;margin:auto}
+
+.nav{padding:56px 0 0;position:relative;z-index:1}
+.links{display:flex;gap:28px;font-size:12px;text-transform:uppercase;letter-spacing:.2em}
+.links .me{color:var(--bright)}
+.links a{color:var(--ink);text-decoration:none;transition:color .2s}
+.links a:hover{color:var(--accent)}
+
+.content{flex:1;padding-top:16vh;position:relative;z-index:1}
+h3{margin:0 0 10px;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent)}
+.body{font-size:19px;line-height:1.9;color:var(--bright);max-width:44ch;margin:0 0 50px}
+.hist{font-size:13px;letter-spacing:.08em;line-height:2.5;text-transform:uppercase}
+.hist b{color:var(--bright);font-weight:400}
+.hist span{color:var(--dim)}
+
+.footer{margin-top:60px;height:88px;display:flex;flex-direction:column;position:relative;z-index:1}
+.footer i{flex:1}
+
+/* theme picker */
+.picker{position:fixed;top:16px;right:18px;display:flex;gap:8px;z-index:200}
+.picker button{width:14px;height:14px;padding:0;cursor:pointer;background:var(--sw);
+  border:1px solid rgba(128,128,128,.45);opacity:.45;transition:opacity .2s}
+.picker button:hover{opacity:.9}
+.picker button[aria-current="true"]{opacity:1;outline:1px solid var(--dim);outline-offset:2px}
+
+@media(max-width:600px){
+  .links{flex-wrap:wrap;gap:12px 18px}
+  .content{padding-top:9vh}
+  .body{font-size:17px}
 }
+
+/* ---- palettes ---- */
+html[data-theme="a"]{--bg:#0d0c0b;--ink:#8f877c;--bright:#d8d2c6;--accent:#9b3d2c;--dim:#545049;--wash:rgba(60,50,44,.45);}
+html[data-theme="b"]{--bg:#1a1613;--ink:#a89e90;--bright:#e7e0d2;--accent:#a8452f;--dim:#686158;--wash:rgba(168,69,47,.12);}
+html[data-theme="c"]{--bg:#0a0a0a;--ink:#7d7d7d;--bright:#f2f2f2;--accent:#ffffff;--dim:#494949;--wash:rgba(255,255,255,.05);}
+html[data-theme="d"]{--bg:#16130d;--ink:#a1927a;--bright:#ded0b4;--accent:#b98a3e;--dim:#625949;--wash:rgba(185,138,62,.12);}
+html[data-theme="e"]{--bg:#e7d9ba;--ink:#6b5a3c;--bright:#33291a;--accent:#c25a1e;--dim:#a39375;--wash:rgba(194,90,30,.14);}
+html[data-theme="f"]{--bg:#fdf6e3;--ink:#8a7d63;--bright:#33302f;--accent:#f4c16e;--dim:#beb39d;--wash:rgba(136,192,208,.20);}
+
+/* ---- footer strata ---- */
+html[data-theme="a"] .footer i:nth-child(1){background:#141210}
+html[data-theme="a"] .footer i:nth-child(2){background:#361d17}
+html[data-theme="a"] .footer i:nth-child(3){background:#58281e}
+html[data-theme="a"] .footer i:nth-child(4){background:#793225}
+html[data-theme="a"] .footer i:nth-child(5){background:#9b3d2c}
+html[data-theme="b"] .footer i:nth-child(1){background:#221c17}
+html[data-theme="b"] .footer i:nth-child(2){background:#44261d}
+html[data-theme="b"] .footer i:nth-child(3){background:#653023}
+html[data-theme="b"] .footer i:nth-child(4){background:#863b29}
+html[data-theme="b"] .footer i:nth-child(5){background:#a8452f}
+html[data-theme="c"] .footer i:nth-child(1){background:#121212}
+html[data-theme="c"] .footer i:nth-child(2){background:#4d4d4d}
+html[data-theme="c"] .footer i:nth-child(3){background:#888888}
+html[data-theme="c"] .footer i:nth-child(4){background:#c4c4c4}
+html[data-theme="c"] .footer i:nth-child(5){background:#ffffff}
+html[data-theme="d"] .footer i:nth-child(1){background:#1d180f}
+html[data-theme="d"] .footer i:nth-child(2){background:#44341b}
+html[data-theme="d"] .footer i:nth-child(3){background:#6b5126}
+html[data-theme="d"] .footer i:nth-child(4){background:#926e32}
+html[data-theme="d"] .footer i:nth-child(5){background:#b98a3e}
+html[data-theme="e"] .footer i:nth-child(1){background:#d8c69f}
+html[data-theme="e"] .footer i:nth-child(2){background:#d2ab7f}
+html[data-theme="e"] .footer i:nth-child(3){background:#cd905e}
+html[data-theme="e"] .footer i:nth-child(4){background:#c8753e}
+html[data-theme="e"] .footer i:nth-child(5){background:#c25a1e}
+html[data-theme="f"] .footer i:nth-child(1){background:#ece0c2}
+html[data-theme="f"] .footer i:nth-child(2){background:#d3d8c6}
+html[data-theme="f"] .footer i:nth-child(3){background:#bad0c9}
+html[data-theme="f"] .footer i:nth-child(4){background:#a1c8cc}
+html[data-theme="f"] .footer i:nth-child(5){background:#88c0d0}
+
+/* ---- per-theme texture ---- */
+html[data-theme="a"] body::before{opacity:1;background-image:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.28) 2px 3px)}
+html[data-theme="b"] body::before{opacity:0.28;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");background-size:140px 140px}
+html[data-theme="d"] body::before{opacity:0.34;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");background-size:140px 140px}
+
+/* ---- picker swatch colors ---- */
+.picker button[data-set="a"]{--sw:#9b3d2c}
+.picker button[data-set="b"]{--sw:#a8452f}
+.picker button[data-set="c"]{--sw:#ffffff}
+.picker button[data-set="d"]{--sw:#b98a3e}
+.picker button[data-set="e"]{--sw:#c25a1e}
+.picker button[data-set="f"]{--sw:#f4c16e}
