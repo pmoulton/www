@@ -106,3 +106,17 @@ html[data-theme="d"] body::before{opacity:0.34;mix-blend-mode:screen;background-
 .picker button[data-set="d"]{--sw:#b98a3e}
 .picker button[data-set="e"]{--sw:#c25a1e}
 .picker button[data-set="f"]{--sw:#f4c16e}
+
+/* ---- visited links (literal per theme; var() is ignored on :visited) ---- */
+html[data-theme="a"] .links a:visited{color:#8f877c}
+html[data-theme="a"] .list a:visited{color:#d8d2c6}
+html[data-theme="b"] .links a:visited{color:#a89e90}
+html[data-theme="b"] .list a:visited{color:#e7e0d2}
+html[data-theme="c"] .links a:visited{color:#7d7d7d}
+html[data-theme="c"] .list a:visited{color:#f2f2f2}
+html[data-theme="d"] .links a:visited{color:#a1927a}
+html[data-theme="d"] .list a:visited{color:#ded0b4}
+html[data-theme="e"] .links a:visited{color:#6b5a3c}
+html[data-theme="e"] .list a:visited{color:#33291a}
+html[data-theme="f"] .links a:visited{color:#8a7d63}
+html[data-theme="f"] .list a:visited{color:#33302f}
