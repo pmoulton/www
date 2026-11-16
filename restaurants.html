@@ -10,8 +10,14 @@
   <link href='css/fashion.css' rel='stylesheet' type='text/css'>
   <link rel='icon' href='favicon3.png' />
 
-  <!-- pick a theme at random before paint -->
-  <script>(function(){var k=['a','b','c','d','e','f'];document.documentElement.setAttribute('data-theme',k[Math.floor(Math.random()*k.length)])})();</script>
+  <!-- pick a random theme matching the OS light/dark preference before paint -->
+  <script>(function(){
+    var S={dark:['a','b','c','d'],light:['e','f']};
+    var mq=window.matchMedia&&matchMedia('(prefers-color-scheme: light)');
+    window.pickTheme=function(){var k=S[mq&&mq.matches?'light':'dark'];return k[Math.floor(Math.random()*k.length)]};
+    window.themeQuery=mq;
+    document.documentElement.setAttribute('data-theme',pickTheme());
+  })();</script>
 
   <!-- Google Analytics -->
   <script src='js/analytics.js'></script>
@@ -195,8 +201,14 @@
         root.setAttribute('data-theme',t);
         btns.forEach(function(b){b.setAttribute('aria-current', b.dataset.set===t)});
       }
-      btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+      var chosen=false;   /* once the user picks, stop following the OS scheme */
+      btns.forEach(function(b){b.addEventListener('click',function(){chosen=true;set(b.dataset.set)})});
       set(root.getAttribute('data-theme'));   /* sync picker to the random pick */
+      var mq=window.themeQuery;
+      if(mq){
+        var onChange=function(){if(!chosen)set(pickTheme())};
+        mq.addEventListener?mq.addEventListener('change',onChange):mq.addListener(onChange);
+      }
     })();
   </script>
 </body>
